@@ -1,1 +1,2 @@
+# .gitattributes
 *.go text eol=lf
