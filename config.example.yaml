@@ -1,0 +1,43 @@
+log:
+  level: info   # debug | info | warn | error
+  format: text  # text | json
+
+storage:
+  path: /data/gbtracker.db
+
+nats:
+  url: "nats://nats:4222"
+
+  # How long an event stays readable for a consumer that has not caught up,
+  # i.e. the longest outage a subscriber can sleep through.
+  max_age: 168h
+
+gamebanana:
+  user_agent: "GB-Tracker/1.0"
+
+tracker:
+  poll_interval: 5m
+
+  # Unix timestamp applied to every poll: mods not newer than this are ignored
+  # entirely. Set it to the deployment date so the first run does not announce
+  # the whole back catalogue. 0 disables the filter.
+  ts_init: 0
+
+  # Also fetch Core/Item/Data for every new mod, so that the published event
+  # carries the file list and the description.
+  fetch_details: true
+
+  defaults:
+    per_page: 15
+    max_pages: 5
+    sort: Generic_LatestModified
+
+  categories:
+    - id: 5568
+      label: "CS:S Bunny Hop"
+
+    # A parent category may be watched alongside one of its children: the
+    # overlapping mods are deduplicated in the database.
+    - id: 5535
+      label: "CS:S Maps"
+      max_pages: 10
