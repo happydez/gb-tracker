@@ -3,7 +3,9 @@
 Watches GameBanana categories and announces new and updated mods.
 
 Every mod it finds is also published as an event, so you can hook up your own
-service and do something with it.
+service and do something with it. A working example of that is
+[`services/gb-mms`](services/gb-mms), which downloads the maps and puts them on
+a game server.
 
 ## Quick start
 
@@ -92,3 +94,16 @@ A few rules:
 - The same event can arrive more than once, so remember what you already did.
   Store `mod_id` with `mdate`, since the same mod comes back when it gets
   updated.
+
+
+### gb-mms (movement maps)
+
+Subscribes to `mods.discovered`, downloads the archive, unpacks it (including
+nested archives), checks the `.bsp` files, sorts maps into folders by prefix,
+uploads them over FTP, runs RCON commands, and posts the result.
+
+<p><img src="docs/1.png" width="700" alt="Announcement for a single map, uploaded and added to the servers"></p>
+
+<p><img src="docs/2.png" width="700" alt="Announcement with the changelog of a map update"></p>
+
+<p><img src="docs/3.png" width="700" alt="Announcement for a five map pack"></p>

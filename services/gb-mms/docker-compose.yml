@@ -1,0 +1,23 @@
+# The network is the one gb-tracker's compose file creates, so bring that up
+# first. Point nats.url elsewhere and the networks section can go away.
+services:
+  gb-mms:
+    build:
+      context: ../..
+      dockerfile: services/gb-mms/Dockerfile
+    restart: unless-stopped
+    environment:
+      GB_FTP_USER: ${GB_FTP_USER:-}
+      GB_FTP_PASSWORD: ${GB_FTP_PASSWORD:-}
+      GB_RCON_PASSWORD: ${GB_RCON_PASSWORD:-}
+    networks: [gbtracker]
+    user: "${GB_UID:-1000}:${GB_GID:-1000}"
+    volumes:
+      - ./data:/data
+      - ./gbmms.yaml:/etc/gbmms/gbmms.yaml:ro
+    command: ["-config", "/etc/gbmms/gbmms.yaml"]
+
+networks:
+  gbtracker:
+    name: gbtracker
+    external: true

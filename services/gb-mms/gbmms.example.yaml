@@ -1,0 +1,96 @@
+log:
+  level: info
+  format: text
+
+nats:
+  url: "nats://nats:4222"
+  stream: GBTRACKER
+  durable: gb-mms
+  subjects: ["mods.discovered"]
+
+storage:
+  path: /data/gbmms.db
+
+work:
+  # Downloads and extracted maps land here while a mod is processed.
+  dir: /data/work
+  # Leave the files behind instead of cleaning up. For debugging odd archives.
+  keep: false
+
+download:
+  user_agent: "gb-mms/1.0"
+  timeout: 10m
+  attempts: 3
+
+maps:
+  # Where each map goes on the FastDL host, relative to ftp.base_dir.
+  # Order matters: the first matching prefix wins, so a more specific one
+  # has to come first.
+  routes:
+    - prefix: "kz_bhop_"
+      dir: "kz_bhop"
+    - prefix: "kz_"
+      dir: "kz"
+    - prefix: "bhop_"
+      dir: "bhop"
+    - prefix: "surf_"
+      dir: "surf"
+
+  # Maps that matched no route. Empty drops them, which is what makes the
+  # routes a filter as well. "." keeps them in base_dir itself.
+  fallback_dir: ""
+
+  # Per-category overrides of fallback_dir, by the category the tracker found
+  # the mod in. A broad listing is worth filtering strictly; one that is
+  # already about a single kind of map is not.
+  categories:
+    - id: 5568          # CS:S Bunny Hop, all of it is worth keeping
+      fallback_dir: "other"
+
+  # Recursion limit for nested archives. A .tar.gz costs two levels.
+  max_depth: 8
+
+  # bzip2 level used when a .bsp.bz2 has to be derived from a .bsp.
+  compression_level: 9
+
+ftp:
+  # Off leaves the maps on disk and says so in the announcement, instead of
+  # claiming an upload that never happened.
+  enabled: false
+
+  addr: "127.0.0.1:21"
+  user: ${GB_FTP_USER}
+  password: ${GB_FTP_PASSWORD}
+
+  # Remote layout: base_dir/<route dir>/<map>.bsp.bz2
+  base_dir: "/maps"
+
+  # Cap throughput so a big map does not saturate the link. 0 is unlimited.
+  bytes_per_sec: 0
+
+  use_tls: false
+  # Some servers and firewalls choke on extended passive mode.
+  disable_epsv: false
+  dial_timeout: 10s
+
+rcon:
+  # Off skips the game servers and says so in the announcement.
+  enabled: false
+
+  servers:
+    - address: "127.0.0.1:27015"
+      password: ${GB_RCON_PASSWORD}
+
+  # Run once per map, in order. %s is the map name.
+  commands:
+    - "sm_addmap %s"
+
+  timeout: 10s
+
+  # Source processes rcon on the main thread, so commands are spaced out.
+  cmd_delay: 750ms
+
+announce:
+  enabled: true
+  # A channel name from the notifier's config.
+  channel: public
