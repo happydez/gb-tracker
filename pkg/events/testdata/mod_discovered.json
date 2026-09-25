@@ -1,0 +1,58 @@
+{
+  "id": "01JBQX7K9M2NPVWXYZ3ABCDEFG",
+  "type": "mods.discovered",
+  "occurred_at": "2026-09-16T12:34:56.789Z",
+  "source": "tracker",
+  "data": {
+    "mod_id": 699260,
+    "category_id": 5568,
+    "name": "bhop_ln_portal",
+    "profile_url": "https://gamebanana.com/mods/699260",
+    "date_added": 1785528621,
+    "mdate": 1785614900,
+    "is_update": true,
+    "author": "qwertybox",
+    "author_url": "https://gamebanana.com/members/4609031",
+    "author_avatar_url": "https://images.gamebanana.com/static/img/defaults/avatar.gif",
+    "studio": "",
+    "studio_url": "",
+    "game_name": "Counter-Strike: Source",
+    "game_url": "https://gamebanana.com/games/2",
+    "game_icon_url": "https://images.gamebanana.com/img/ico/games/css_icon.png",
+    "root_category": "Maps",
+    "root_category_url": "https://gamebanana.com/mods/cats/5535",
+    "sub_category": "Bunny Hop",
+    "sub_category_url": "https://gamebanana.com/mods/cats/5568",
+    "preview_url": "https://images.gamebanana.com/img/ss/mods/6a6d00f093f49.jpg",
+    "has_content_ratings": false,
+    "has_detail": true,
+    "description": "Remake of the classic portal-themed bhop map.",
+    "nsfw": false,
+    "version": "1.1.0",
+    "updates_count": 2,
+    "updates": [
+      {
+        "version": "1.1.0",
+        "title": "",
+        "date_added": 1785614880,
+        "changes": [
+          {"category": "Bugfix", "text": "fixed a skip on the last stage"},
+          {"category": "Improvement", "text": "better lighting in the tunnel"}
+        ]
+      }
+    ],
+    "files": [
+      {
+        "id": "1160715",
+        "name": "bhop_ln_portal_110.zip",
+        "size": 258320957,
+        "download_url": "https://gamebanana.com/dl/1160715",
+        "md5": "f07cbbdf512843cd9d8bba3e97664e84",
+        "date_added": 1785614880,
+        "av_result": "clean"
+      }
+    ],
+    "record": {"_idRow": 699260, "_sName": "bhop_ln_portal"},
+    "detail": {"name": "bhop_ln_portal", "Nsfw().bIsNsfw()": false}
+  }
+}

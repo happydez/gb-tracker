@@ -1,0 +1,146 @@
+{
+    "name": "kz_bhop_genkai",
+    "description": "kz_bhop_genkai",
+    "Updates().aGetLatestUpdates()": [
+        {
+            "_sTitle": "",
+            "_aChangeLog": [
+                {
+                    "text": "Lowered all info_teleport_destination by 1 unit to better prevent telehopping",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Changed all antipre gravity timings to better prevent telehopping",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Fixed stamina and gravity checks",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Fixed reverse climb room skip",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Fixed obscure softlock near infinite fall room",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Fixed possible skips on low gravity bhop twist rooms",
+                    "cat": "Bugfix"
+                },
+                {
+                    "text": "Added more highlight overlays in various places",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Improved contrast for kz blocks in various places",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Fixed lighting inconsistency on curviture evolution room",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Extended purple hint lines",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Fixed music easter egg fade-in time",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Added version tracking in the description on team join",
+                    "cat": "Improvement"
+                },
+                {
+                    "text": "Added safety checkpoint at third kz stage (jump to ladder)",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Stamina check stage is now harder",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Stage after stamina check is now easier",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "First stage in reverse climb room is now better aligned",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "360 degree cyan jump distance went from 284 to 290",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Water bhop stage on diagonal symmetry level is now harder to skip on auto",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Last jump on first low gravity bhop twist room is 16 units longer",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Last jump on second low gravity bhop twist room is 32 units longer",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "First jump on last low gravity kz level is 4 units shorter",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Second jump on last low gravity kz level is 2 units longer",
+                    "cat": "Tweak"
+                },
+                {
+                    "text": "Last jump at ladder stage on push reset level is 4 units shorter",
+                    "cat": "Tweak"
+                }
+            ],
+            "_sText": "",
+            "_tsDateAdded": 1711171437,
+            "_sVersion": "1.1.0"
+        },
+        {
+            "_sTitle": "",
+            "_aChangeLog": [
+                {
+                    "text": "Fix wall of text typo",
+                    "cat": "Adjustment"
+                }
+            ],
+            "_sText": "",
+            "_tsDateAdded": 1709347718,
+            "_sVersion": "1.0.1"
+        }
+    ],
+    "Updates().nUpdatesCount()": 2,
+    "Nsfw().bIsNsfw()": false,
+    "Owner().name": "Flexlolo",
+    "udate": 1711171437,
+    "mdate": 1711171122,
+    "Game().name": "Counter-Strike: Source",
+    "RootCategory().name": "Maps",
+    "Category().name": "Bunny Hop",
+    "Files().aFiles()": {
+        "1160715": {
+            "_idRow": "1160715",
+            "_sFile": "kz_bhop_genkai_110.zip",
+            "_nFilesize": 258320957,
+            "_tsDateAdded": 1711171089,
+            "_nDownloadCount": 92,
+            "_sDownloadUrl": "https:\/\/gamebanana.com\/dl\/1160715",
+            "_sMd5Checksum": "f07cbbdf512843cd9d8bba3e97664e84",
+            "_sAnalysisState": "done",
+            "_sAnalysisResult": "ok",
+            "_sAnalysisResultVerbose": "File passed preliminary analysis",
+            "_sAvState": "done",
+            "_sAvResult": "clean",
+            "_bIsArchived": false,
+            "_bHasContents": true
+        }
+    },
+    "Url().sProfileUrl()": "https:\/\/gamebanana.com\/mods\/498415",
+    "Preview().sStructuredDataFullsizeUrl()": "https:\/\/gamebanana.com\/mods\/embeddables\/498415?variant=sd_image"
+}

@@ -1,0 +1,53 @@
+log:
+  level: info
+  format: text
+
+nats:
+  url: "nats://nats:4222"
+
+notifier:
+  # The consumer name, and with it the cursor that survives a restart.
+  durable: notifier
+
+  # Everything this notifier consumes. It has to cover every event_type the
+  # routes below mention, plus notifications.send.
+  subjects: ["mods.>", "errors.>", "notifications.>"]
+
+  # Channels are names, not addresses: a publisher asks for "public" and the
+  # operator decides what that means. Webhook urls are read from the
+  # environment, so they never sit in this file.
+  channels:
+    public:
+      - discord:
+          webhook_url: ${GB_DISCORD_WEBHOOK_PUBLIC}
+          username: "Tracker"
+          # Without this Discord shows its own default icon. Any png, jpg, gif
+          # or webp url works; .ico does not.
+          avatar_url: ""
+          mentions: ["<@&123456789012345678>"]
+
+    private:
+      - discord:
+          webhook_url: ${GB_DISCORD_WEBHOOK_PRIVATE}
+          username: "Tracker"
+          avatar_url: ""
+          mentions: ["<@&123456789012345678>"]
+
+  # Routes render events that arrived without a ready-made message. Every text
+  # field is a Go template over the event payload; the envelope is available as
+  # ._id, ._type, ._source and ._occurred_at.
+  #
+  # The first matching route wins, so put specific types above wildcards.
+  # mods.discovered is not routed here: the announcer service renders it and
+  # sends the finished message as notifications.send. Only infrastructure
+  # events, which belong to no domain, are rendered by this config.
+  routes:
+    - event_type: "errors.>"
+      channel: private
+      title: "{{ ._source }} failed at {{ .stage }}"
+      description: "{{ .message }}"
+      color: "#E74C3C"
+      fields:
+        - name: "Mod"
+          value: "{{ with .mod_id }}{{ . }}{{ end }}"
+          inline: true
